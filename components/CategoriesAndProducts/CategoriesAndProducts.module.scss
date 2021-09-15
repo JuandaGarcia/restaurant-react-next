@@ -1,0 +1,24 @@
+.categories_and_products {
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		&__title {
+			margin: 0;
+		}
+	}
+	&__categories {
+		display: grid;
+		grid-auto-flow: column;
+		gap: 2rem;
+		margin: 2rem 0 3rem 0;
+	}
+	&__products {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 2rem;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+}

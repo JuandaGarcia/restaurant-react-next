@@ -7,7 +7,7 @@ const Banner = () => {
 			<img
 				className={s.banner__img}
 				src="/img/headerimage.png"
-				alt="Imagen de la Oferta"
+				alt="Offer Image"
 			/>
 			<div className={s.banner__content}>
 				<h3 className={s.banner__content__title}>$0 delivery for 30 days!</h3>

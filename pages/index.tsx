@@ -1,16 +1,16 @@
 import Banner from 'components/Banner/Banner'
+import CategoriesAndProducts from 'components/CategoriesAndProducts/CategoriesAndProducts'
 import Header from 'components/Header/Header'
-import Modal from 'components/Modal/Modal'
 import OrderSection from 'components/OrderSection/OrderSection'
-import type { NextPage } from 'next'
 import s from 'styles/Home.module.scss'
 
-const Home: NextPage = () => {
+const Home = () => {
 	return (
 		<div className={s.home}>
 			<div className={s.home__content}>
 				<Header />
 				<Banner />
+				<CategoriesAndProducts />
 			</div>
 			<OrderSection />
 		</div>
