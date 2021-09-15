@@ -1,0 +1,30 @@
+.header {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: var(--spacing);
+	align-items: center;
+	&__logo {
+		font-weight: 500;
+		font-size: 1.54rem;
+		margin: 0;
+	}
+	&__input {
+		height: 3rem;
+		padding-left: 4rem;
+		border: none;
+		outline: none;
+		font-family: inherit;
+		border-radius: 1rem;
+		background: url('/icons/search.svg');
+		background-color: var(--soft-color);
+		background-repeat: no-repeat;
+		background-size: 1.2rem;
+		background-position-y: center;
+		background-position-x: 1.5rem;
+		transition: 0.5s;
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 3px var(--primary-color);
+		}
+	}
+}

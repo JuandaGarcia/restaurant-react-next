@@ -1,0 +1,31 @@
+@mixin media($breakpoint: 'desktop-s') {
+	@if $breakpoint == fold {
+		@media only screen and (min-width: 281px) {
+			@content;
+		}
+	} @else if $breakpoint == phone-mini {
+		@media only screen and (min-width: 320px) {
+			@content;
+		}
+	} @else if $breakpoint == tablet {
+		@media only screen and (min-width: 768px) {
+			@content;
+		}
+	} @else if $breakpoint == desktop-s {
+		@media only screen and (min-width: 992px) {
+			@content;
+		}
+	} @else if $breakpoint == desktop-m {
+		@media only screen and (min-width: 1200px) {
+			@content;
+		}
+	} @else if $breakpoint == desktop-l {
+		@media only screen and (min-width: 1480px) {
+			@content;
+		}
+	} @else if $breakpoint == desktop-xl {
+		@media only screen and (min-width: 1780px) {
+			@content;
+		}
+	}
+}

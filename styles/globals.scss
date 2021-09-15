@@ -1,0 +1,45 @@
+@import './media_querys';
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+button {
+	border: none;
+	cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+:root {
+	/* Spacing */
+	--spacing: 1.5rem;
+	@include media('tablet') {
+		--spacing: 5rem;
+	}
+	/* Colors */
+	--primary-color: #fbd560;
+	--secondary-color: #503e9d;
+	--tertiary-color: #fb6d3b;
+	--text-gray: #9b948e;
+	--soft-color: #f8f8f8;
+	/* Sizes */
+	--geist-radius: 1.5rem;
+}

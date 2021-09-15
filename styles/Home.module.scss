@@ -1,0 +1,16 @@
+@import './media_querys';
+
+.home {
+	display: grid;
+	grid-template-columns: 1fr;
+	min-height: 100vh;
+	@include media {
+		grid-template-columns: 1fr 25rem;
+	}
+	.home__content {
+		width: 100%;
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: 2.5rem var(--spacing);
+	}
+}
