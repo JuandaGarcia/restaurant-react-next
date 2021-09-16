@@ -4,12 +4,18 @@ import s from './CategoryItem.module.scss'
 
 type Props = {
 	category: Category
+	defaultChecked?: boolean
 }
 
-const CategoryItem = ({ category }: Props) => {
+const CategoryItem = ({ category, defaultChecked = false }: Props) => {
 	return (
 		<label className={s.category_item} title={category.name}>
-			<input className={s.category_item__input} type="radio" name="category" />
+			<input
+				defaultChecked={defaultChecked}
+				className={s.category_item__input}
+				type="radio"
+				name="category"
+			/>
 			<div className={s.category_item__item}>
 				<div className={s.category_item__item__circle}>
 					<img

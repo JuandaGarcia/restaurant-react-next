@@ -14,27 +14,37 @@ const CategoriesAndProducts = () => {
 	} = useRestaurant()
 
 	return (
-		<section>
+		<main>
 			<div className={s.categories_and_products__header}>
 				<h2 className={s.categories_and_products__header__title}>
-					Restaurnat 🍔
+					Restaurant 🍔
 				</h2>
+				<label className={s.categories_and_products__header__select}>
+					<span>Delivery:</span>
+					<select className={s.categories_and_products__header__select__input}>
+						<option value="now">Now</option>
+					</select>
+				</label>
 			</div>
-			<form className={s.categories_and_products__categories}>
+			<div className={s.categories_and_products__categories}>
 				{loadingCategories ? (
 					'Loading'
 				) : errorCategories ? (
 					'Error'
 				) : categories.length ? (
 					<>
-						{categories.map(category => (
-							<CategoryItem key={category.id} category={category} />
+						{categories.map((category, i) => (
+							<CategoryItem
+								key={category.id}
+								category={category}
+								defaultChecked={i === 0}
+							/>
 						))}
 					</>
 				) : (
 					'No categories available'
 				)}
-			</form>
+			</div>
 			<ul className={s.categories_and_products__products}>
 				{loadingProducts ? (
 					'Loading'
@@ -52,7 +62,7 @@ const CategoriesAndProducts = () => {
 					'No products available'
 				)}
 			</ul>
-		</section>
+		</main>
 	)
 }
 

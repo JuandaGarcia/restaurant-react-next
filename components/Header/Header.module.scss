@@ -14,7 +14,7 @@
 		border: none;
 		outline: none;
 		font-family: inherit;
-		border-radius: 1rem;
+		border-radius: var(--geist-radius-secondary);
 		background: url('/icons/search.svg');
 		background-color: var(--soft-color);
 		background-repeat: no-repeat;

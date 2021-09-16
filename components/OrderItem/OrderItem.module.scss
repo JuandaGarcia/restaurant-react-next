@@ -1,0 +1,57 @@
+@import '../../styles/mixins';
+
+.order_item {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	animation: item 0.5s;
+	&__img {
+		width: 4rem;
+		height: 2rem;
+		border-radius: 0.5rem;
+		object-fit: cover;
+		margin-right: 1.5rem;
+	}
+	&__title {
+		font-size: 0.9rem;
+		margin-bottom: 0.4rem;
+		@include text-ellipsis;
+	}
+	&__quantity {
+		width: max-content;
+		display: grid;
+		grid-template-columns: 1.5rem 2rem 1.5rem;
+		text-align: center;
+		border-radius: 5px;
+		user-select: none;
+		overflow: hidden;
+		border: 2px solid rgb(231, 231, 231);
+		&__button {
+			background: none;
+			&__trash {
+				display: inline-block;
+				height: 100%;
+				width: 100%;
+				background: url('/icons/trash.svg');
+				background-size: 110%;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+	&__price {
+		font-size: 0.9rem;
+		color: var(--text-gray);
+	}
+}
+
+@keyframes item {
+	from {
+		opacity: 0;
+		transform: translateX(5rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}

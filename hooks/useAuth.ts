@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast'
 import { errorConfigTop } from 'config/toast'
 import {
 	GoogleAuthProvider,
+	GithubAuthProvider,
 	signInWithPopup,
 	getAuth,
 	signOut as signOutAuth,
@@ -24,6 +25,15 @@ const useAuth = () => {
 		}
 	}
 
+	const githubAuth = async () => {
+		try {
+			const githubProvider = new GithubAuthProvider()
+			await signInWithPopup(auth, githubProvider)
+		} catch (error: any) {
+			toast.error(error.message, errorConfigTop)
+		}
+	}
+
 	const signOut = async () =>
 		await signOutAuth(auth).catch(error =>
 			toast.error(error.message, errorConfigTop)
@@ -33,6 +43,7 @@ const useAuth = () => {
 		user,
 		loadingUser,
 		googleAuth,
+		githubAuth,
 		signOut,
 	}
 }

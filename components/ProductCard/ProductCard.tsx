@@ -1,12 +1,15 @@
 import Product from 'utils/types/Product'
 import Image from 'next/image'
 import s from './ProductCard.module.scss'
+import useCart from 'hooks/useCart'
 
 type Props = {
 	product: Product
 }
 
 const ProductCard = ({ product }: Props) => {
+	const { addToCart } = useCart()
+
 	return (
 		<div className={s.product_card} title={product.name}>
 			<div className={s.product_card__photo}>
@@ -27,7 +30,12 @@ const ProductCard = ({ product }: Props) => {
 					</span>
 					<span className={s.product_card__info__price}>$ {product.price}</span>
 				</div>
-				<button className={s.product_card__info__button}>Añadir</button>
+				<button
+					onClick={() => addToCart(product, true)}
+					className={s.product_card__info__button}
+				>
+					Añadir
+				</button>
 			</div>
 		</div>
 	)

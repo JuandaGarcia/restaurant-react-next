@@ -62,13 +62,13 @@
 		&__price {
 			font-size: 0.8rem;
 			margin-left: 1rem;
-			color: rgb(122, 122, 122);
+			color: var(--text-gray);
 		}
 		&__button {
 			font-size: 0.8rem;
 			padding: 0.2rem 0.5rem;
 			border-radius: 5px;
-			color: #fff;
+			color: var(--geist-background);
 			background-color: var(--tertiary-color);
 			transition: 0.5s;
 		}

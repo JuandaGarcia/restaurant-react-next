@@ -20,13 +20,24 @@ body {
 	--tertiary-color: #fb6d3b;
 	--text-gray: #9b948e;
 	--soft-color: #f8f8f8;
+	--geist-background: #fff;
 	/* Sizes */
 	--geist-radius: 1.5rem;
+	--geist-radius-secondary: 1rem;
 }
 
 ::selection {
 	background: var(--primary-color);
-	color: #fff;
+	color: var(--geist-background);
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.4);
+	border-radius: 1rem;
 }
 
 a {

@@ -21,7 +21,7 @@
 		width: 100%;
 		max-width: 400px;
 		padding: 2rem;
-		background-color: #fff;
+		background-color: var(--geist-background);
 		border-radius: 0.75rem;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
@@ -53,6 +53,10 @@
 				width: 2rem;
 				margin-left: 2rem;
 				border-radius: 50%;
+				background: url('/icons/x.svg');
+				background-repeat: no-repeat;
+				background-size: 50%;
+				background-position: center;
 				background-color: var(--soft-color);
 			}
 		}

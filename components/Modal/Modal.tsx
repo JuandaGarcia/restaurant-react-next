@@ -47,18 +47,16 @@ const Modal: FC<Props> = ({ show = true, title, close, children }) => {
 						{title}
 					</h2>
 					<button
-						aria-label="Cerrar modal"
+						aria-label="Close modal"
 						className={s.modal__content__header__exit}
 						onClick={() => close(false)}
-					>
-						x
-					</button>
+					></button>
 				</div>
 				{children}
 			</div>
 			<div
 				role="button"
-				aria-label="Cerrar modal"
+				aria-label="Close modal"
 				onClick={() => close(false)}
 				className={s.modal__overlay}
 			></div>

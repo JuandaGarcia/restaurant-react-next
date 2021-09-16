@@ -5,6 +5,46 @@
 		justify-content: space-between;
 		&__title {
 			margin: 0;
+			font-weight: 600;
+		}
+		&__select {
+			background-color: var(--tertiary-color);
+			color: var(--geist-background);
+			padding: 0.5rem 1rem;
+			border-radius: 5rem;
+			font-size: 0.8rem;
+			user-select: none;
+			cursor: pointer;
+			&::before {
+				content: '';
+				display: inline-block;
+				width: 1.1em;
+				height: 1.1em;
+				margin-right: 0.3rem;
+				transform: translateY(0.15rem);
+				background: url('/icons/clock.svg');
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+			}
+			&__input {
+				height: 100%;
+				margin-left: 0.5rem;
+				background: none;
+				color: inherit;
+				border: none;
+				font-family: inherit;
+				font-weight: 600;
+				outline: none;
+				border-radius: 5px;
+				transition: 0.2s;
+				cursor: pointer;
+				font-size: inherit;
+				&:focus-visible {
+					outline: none;
+					box-shadow: 0 0 0 3px var(--geist-background);
+				}
+			}
 		}
 	}
 	&__categories {
