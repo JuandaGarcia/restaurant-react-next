@@ -1,3 +1,6 @@
+# Restaurant NextJS
+🌎 URL: [https://restaurant-react-next.vercel.app/](https://restaurant-react-next.vercel.app/)
+
 ![restaurant](https://restaurant-react-next.vercel.app/img/ipad.jpg)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
