@@ -34,7 +34,7 @@ const ProductCard = ({ product }: Props) => {
 					onClick={() => addToCart(product, true)}
 					className={s.product_card__info__button}
 				>
-					Añadir
+					Add
 				</button>
 			</div>
 		</div>
