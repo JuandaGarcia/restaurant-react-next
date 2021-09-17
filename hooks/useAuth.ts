@@ -5,6 +5,7 @@ import { errorConfigTop } from 'config/toast'
 import {
 	GoogleAuthProvider,
 	GithubAuthProvider,
+	FacebookAuthProvider,
 	signInWithPopup,
 	getAuth,
 	signOut as signOutAuth,
@@ -34,6 +35,15 @@ const useAuth = () => {
 		}
 	}
 
+	const facebookAuth = async () => {
+		try {
+			const facebookProvider = new FacebookAuthProvider()
+			await signInWithPopup(auth, facebookProvider)
+		} catch (error: any) {
+			toast.error(error.message, errorConfigTop)
+		}
+	}
+
 	const signOut = async () =>
 		await signOutAuth(auth).catch(error =>
 			toast.error(error.message, errorConfigTop)
@@ -44,6 +54,7 @@ const useAuth = () => {
 		loadingUser,
 		googleAuth,
 		githubAuth,
+		facebookAuth,
 		signOut,
 	}
 }

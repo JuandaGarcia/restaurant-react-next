@@ -1,15 +1,15 @@
 import GoogleIcon from './Icons/GoogleIcon'
 import GithubIcon from './Icons/GithubIcon'
-import s from './AuthButton.module.scss'
+import FacebookIcon from './Icons/FacebookIcon'
 import useAuth from 'hooks/useAuth'
-import { ButtonHTMLAttributes } from 'react'
+import s from './AuthButton.module.scss'
 
 type Props = {
-	type: 'google' | 'github'
+	type: 'google' | 'github' | 'facebook'
 }
 
 const AuthButton = ({ type }: Props) => {
-	const { googleAuth, githubAuth } = useAuth()
+	const { googleAuth, githubAuth, facebookAuth } = useAuth()
 
 	const providers = {
 		google: {
@@ -23,6 +23,12 @@ const AuthButton = ({ type }: Props) => {
 			Icon: GithubIcon,
 			onClick: githubAuth,
 			className: s.github,
+		},
+		facebook: {
+			name: 'Facebook',
+			Icon: FacebookIcon,
+			onClick: facebookAuth,
+			className: s.facebook,
 		},
 	}
 

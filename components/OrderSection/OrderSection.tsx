@@ -34,6 +34,7 @@ const OrderSection = () => {
 			>
 				{' '}
 				<div className={s.order_section__auth_modal}>
+					<AuthButton type="facebook" />
 					<AuthButton type="google" />
 					<AuthButton type="github" />
 				</div>
