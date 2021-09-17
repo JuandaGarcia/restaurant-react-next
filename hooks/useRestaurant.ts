@@ -1,57 +1,77 @@
-import { useEffect, useState } from 'react'
-import Category from 'utils/types/Category'
-import Product from 'utils/types/Product'
+import { Context } from 'context/AppContext'
+import { ChangeEvent, useContext, useEffect, useRef } from 'react'
 
 const useRestaurant = () => {
-	const [categories, setCategories] = useState<Category[]>([])
-	const [loadingCategories, setLoadingCategories] = useState(true)
-	const [errorCategories, setErrorCategories] = useState<null | any>(null)
+	const { restaurantState, restaurantDispatch } = useContext(Context)
+	const {
+		products,
+		categories,
+		loadingProducts,
+		loadingCategories,
+		errorProducts,
+		errorCategories,
+		openMenu,
+		search,
+		search_result,
+	} = restaurantState
 
-	const [products, setProducts] = useState<Product[]>([])
-	const [loadingProducts, setLoadingProducts] = useState(true)
-	const [errorProducts, setErrorProducts] = useState<null | any>(null)
-
-	useEffect(() => {
-		const getData = async () => {
-			await getCategories()
-			await getProducts()
-		}
-		getData()
-	}, [])
+	const getData = async () => {
+		await getCategories()
+		await getProducts()
+	}
 
 	const getCategories = async () => {
-		setLoadingCategories(true)
+		restaurantDispatch({
+			type: 'init-request',
+			payload: 'categories',
+		})
 		try {
 			const res = await fetch('/data/categories.json')
 			const data = await res.json()
-			setCategories(data)
-			setLoadingCategories(false)
+			restaurantDispatch({ type: 'set-categories', payload: data })
 		} catch (error) {
-			setErrorCategories(error)
-			setLoadingCategories(false)
+			restaurantDispatch({
+				type: 'error',
+				payload: { type: 'categories', error: error },
+			})
 		}
 	}
 
 	const getProducts = async () => {
-		setLoadingProducts(true)
+		restaurantDispatch({ type: 'init-request', payload: 'products' })
 		try {
 			const res = await fetch('/data/products.json')
 			const data = await res.json()
-			setProducts(data)
-			setLoadingProducts(false)
+			restaurantDispatch({ type: 'set-products', payload: data })
 		} catch (error) {
-			setErrorProducts(error)
-			setLoadingProducts(false)
+			restaurantDispatch({
+				type: 'error',
+				payload: { type: 'products', error: error },
+			})
 		}
 	}
 
+	const toggleMenu = () => {
+		restaurantDispatch({ type: 'toggle-menu' })
+	}
+
+	const handleChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+		restaurantDispatch({ type: 'search', payload: event.target.value })
+	}
+
 	return {
-		categories,
 		products,
-		loadingCategories,
-		errorCategories,
+		categories,
 		loadingProducts,
 		errorProducts,
+		loadingCategories,
+		errorCategories,
+		openMenu,
+		toggleMenu,
+		getData,
+		search,
+		handleChangeSearch,
+		search_result,
 	}
 }
 

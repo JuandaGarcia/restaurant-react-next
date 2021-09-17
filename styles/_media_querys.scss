@@ -4,7 +4,7 @@
 			@content;
 		}
 	} @else if $breakpoint == phone-mini {
-		@media only screen and (min-width: 320px) {
+		@media only screen and (min-width: 370px) {
 			@content;
 		}
 	} @else if $breakpoint == tablet {

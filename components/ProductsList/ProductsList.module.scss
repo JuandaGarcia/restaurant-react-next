@@ -1,0 +1,8 @@
+.products {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(226px, 1fr));
+	gap: 2rem;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}

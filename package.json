@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "canvas-confetti": "^1.4.0",
     "firebase": "^9.0.2",
     "next": "11.1.2",
     "react": "17.0.2",
@@ -16,6 +17,7 @@
     "react-hot-toast": "^2.1.1"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.4.2",
     "@types/react": "17.0.21",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",

@@ -8,6 +8,12 @@ import {
 	cartReducer,
 	ICartState,
 } from './states/cartState'
+import {
+	IRestaurantState,
+	restaurantActionType,
+	restaurantInitialState,
+	restaurantReducer,
+} from './states/restaurantState'
 
 type FirebaseUser = User | null
 
@@ -15,6 +21,8 @@ type IContext = {
 	userState: IUserState
 	cartState: ICartState
 	cartDispatch: Dispatch<cartActionType>
+	restaurantState: IRestaurantState
+	restaurantDispatch: Dispatch<restaurantActionType>
 }
 
 export const Context = createContext({} as IContext)
@@ -22,6 +30,10 @@ export const Context = createContext({} as IContext)
 export const AppContextProvider: FC = ({ children }) => {
 	const [userState, userDispatch] = useReducer(userReducer, userInitialState)
 	const [cartState, cartDispatch] = useReducer(cartReducer, cartInitialState)
+	const [restaurantState, restaurantDispatch] = useReducer(
+		restaurantReducer,
+		restaurantInitialState
+	)
 
 	const handleUser = (user: FirebaseUser) =>
 		user
@@ -41,6 +53,8 @@ export const AppContextProvider: FC = ({ children }) => {
 				userState,
 				cartState,
 				cartDispatch,
+				restaurantState,
+				restaurantDispatch,
 			}}
 		>
 			{children}

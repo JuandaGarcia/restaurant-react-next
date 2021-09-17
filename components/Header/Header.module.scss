@@ -1,14 +1,21 @@
+@import '../../styles/media_querys';
+
 .header {
 	display: grid;
 	grid-template-columns: auto 1fr;
+	grid-template-rows: auto auto;
 	gap: var(--spacing);
 	align-items: center;
+	@include media {
+		grid-template-rows: auto;
+	}
 	&__logo {
 		font-weight: 500;
 		font-size: 1.54rem;
 		margin: 0;
 	}
 	&__input {
+		grid-column: span 2;
 		height: 3rem;
 		padding-left: 4rem;
 		border: none;
@@ -21,10 +28,39 @@
 		background-size: 1.2rem;
 		background-position-y: center;
 		background-position-x: 1.5rem;
+		@include media {
+			grid-column: initial;
+		}
 		transition: 0.5s;
 		&:focus {
 			outline: none;
 			box-shadow: 0 0 0 3px var(--primary-color);
+		}
+	}
+	&__cart_buttom {
+		width: 1.8rem;
+		height: 1.8rem;
+		padding: 0;
+		background: url('/icons/shopping-cart.svg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		position: relative;
+		justify-self: flex-end;
+		@include media {
+			display: none;
+		}
+		&__count {
+			display: inline-block;
+			min-width: 1.2rem;
+			height: 1.2rem;
+			background-color: var(--tertiary-color);
+			border-radius: 50%;
+			color: var(--geist-background);
+			position: absolute;
+			top: 0;
+			right: 0;
+			transform: translate(50%, -50%);
 		}
 	}
 }

@@ -1,11 +1,12 @@
 @import './media_querys';
 
 .home {
-	display: grid;
-	grid-template-columns: 1fr;
+	display: flex;
+	flex-direction: column;
 	min-height: 100vh;
 	@include media {
-		grid-template-columns: 1fr 25rem;
+		display: grid;
+		grid-template-columns: calc(100vw - 25.6rem) 25rem;
 	}
 	.home__content {
 		width: 100%;

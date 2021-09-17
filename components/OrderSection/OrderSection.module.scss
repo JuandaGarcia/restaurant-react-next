@@ -1,43 +1,95 @@
 @import '../../styles/mixins';
+@import '../../styles/media_querys';
 
 .order_section {
 	$padding: 2.5rem;
 	height: 100vh;
+	width: 100vw;
 	padding: $padding;
 	background-color: #fdfdfb;
-	border-left: 1px solid #f4f4f4;
-	position: sticky;
+	position: fixed;
+	display: grid;
+	grid-template-rows: min-content min-content min-content minmax(5rem, 1fr) min-content min-content;
+	gap: 1.5rem;
 	top: 0;
-	&__user {
+	left: 0;
+	bottom: 0;
+	right: 0;
+	transform: translateX(100vw);
+	transition: 0.2s;
+	overflow-y: scroll;
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: rgba(0, 0, 0, 0.1);
+		border-radius: 1rem;
+	}
+	&.active {
+		transform: translateX(0);
+	}
+	@include media {
+		left: initial;
+		bottom: initial;
+		right: initial;
+		width: initial;
+		position: sticky;
+		border-left: 1px solid #f4f4f4;
+		transform: translateX(0);
+	}
+	&__auth_modal {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+	&__header {
 		display: flex;
-		justify-content: flex-end;
-		margin-bottom: var(--spacing);
-		&__profile {
-			display: flex;
-			align-items: center;
-			&__name {
-				max-width: 10rem;
-				@include text-ellipsis;
-			}
-			&__img {
-				margin: 0 1rem;
-				border-radius: var(--geist-radius-secondary);
-			}
-			&__button {
-				width: 1.5rem;
-				height: 1.5rem;
-				background: url('/icons/logout.svg');
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
+		align-items: center;
+		justify-content: space-between;
+		@include media {
+			justify-content: flex-end;
+		}
+		&__close {
+			height: 1.5rem;
+			width: 1.5rem;
+			background: url('/icons/x.svg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			@include media {
+				display: none;
 			}
 		}
-		&__button {
-			height: 3rem;
-			padding: 0 2rem;
-			border-radius: var(--geist-radius-secondary);
-			background-color: var(--tertiary-color);
-			color: var(--geist-background);
+		&__user {
+			display: flex;
+			justify-content: flex-end;
+			&__profile {
+				display: flex;
+				align-items: center;
+				&__name {
+					max-width: 10rem;
+					@include text-ellipsis;
+				}
+				&__img {
+					margin: 0 1rem;
+					border-radius: var(--geist-radius-secondary);
+				}
+				&__button {
+					width: 1.5rem;
+					height: 1.5rem;
+					background: url('/icons/logout.svg');
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-position: center;
+				}
+			}
+			&__button {
+				height: 3rem;
+				padding: 0 2rem;
+				border-radius: var(--geist-radius-secondary);
+				background-color: var(--tertiary-color);
+				color: var(--geist-background);
+			}
 		}
 	}
 	&__title {
@@ -46,14 +98,43 @@
 		margin: 0;
 	}
 	&__address {
-		margin: var(--spacing) 0;
 		padding: 2rem;
+		height: min-content;
 		background-color: var(--secondary-color);
 		border-radius: var(--geist-radius);
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+		color: var(--geist-background);
+		&__login {
+			margin: 0;
+			font-size: 0.8rem;
+			text-align: center;
+		}
+		&__section {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 0.8rem;
+			&__clock {
+				display: inline-block;
+				width: 2rem;
+				height: 2rem;
+				margin-right: 0.5rem;
+				border-radius: 10px;
+				background: url('/icons/clock-yellow.svg');
+				background-color: rgba(251, 213, 96, 0.2);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 50%;
+			}
+			&__action {
+				color: var(--primary-color);
+				cursor: pointer;
+			}
+		}
 	}
 	&__products {
-		height: 35%;
-		margin-bottom: var(--spacing);
 		&__list {
 			display: grid;
 			grid-template-columns: 1fr;
@@ -84,7 +165,6 @@
 		justify-content: space-between;
 		font-size: 1.2rem;
 		position: relative;
-		margin-bottom: 2rem;
 		padding-bottom: 1.5rem;
 		&::after {
 			content: '';

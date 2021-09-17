@@ -1,8 +1,17 @@
+@import '../../styles/media_querys';
+
 .categories_and_products {
 	&__header {
-		display: flex;
+		display: grid;
+		grid-template-rows: auto auto;
 		align-items: center;
-		justify-content: space-between;
+		text-align: center;
+		gap: 1rem;
+		@include media('phone-mini') {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
 		&__title {
 			margin: 0;
 			font-weight: 600;
@@ -29,7 +38,6 @@
 			}
 			&__input {
 				height: 100%;
-				margin-left: 0.5rem;
 				background: none;
 				color: inherit;
 				border: none;
@@ -48,17 +56,21 @@
 		}
 	}
 	&__categories {
+		width: 100%;
 		display: grid;
 		grid-auto-flow: column;
+		grid-auto-columns: max-content;
 		gap: 2rem;
-		margin: 2rem 0 3rem 0;
-	}
-	&__products {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 2rem;
-		padding: 0;
-		margin: 0;
-		list-style: none;
+		padding: 2rem 0;
+		margin-bottom: 1rem;
+		overflow-x: scroll;
+		position: relative;
+		&::-webkit-scrollbar {
+			height: 5px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: rgba(0, 0, 0, 0.1);
+			border-radius: 1rem;
+		}
 	}
 }

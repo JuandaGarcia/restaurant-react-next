@@ -1,17 +1,11 @@
 import CategoryItem from 'components/CategoryItem/CategoryItem'
-import ProductCard from 'components/ProductCard/ProductCard'
+import ProductsList from 'components/ProductsList/ProductsList'
 import useRestaurant from 'hooks/useRestaurant'
 import s from './CategoriesAndProducts.module.scss'
 
 const CategoriesAndProducts = () => {
-	const {
-		categories,
-		products,
-		loadingCategories,
-		loadingProducts,
-		errorCategories,
-		errorProducts,
-	} = useRestaurant()
+	const { categories, loadingCategories, errorCategories, products } =
+		useRestaurant()
 
 	return (
 		<main>
@@ -45,23 +39,7 @@ const CategoriesAndProducts = () => {
 					'No categories available'
 				)}
 			</div>
-			<ul className={s.categories_and_products__products}>
-				{loadingProducts ? (
-					'Loading'
-				) : errorProducts ? (
-					'Error'
-				) : products.length ? (
-					<>
-						{products.map(product => (
-							<li key={product.id}>
-								<ProductCard product={product} />
-							</li>
-						))}
-					</>
-				) : (
-					'No products available'
-				)}
-			</ul>
+			<ProductsList products={products} />
 		</main>
 	)
 }

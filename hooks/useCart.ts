@@ -1,6 +1,7 @@
 import { Context } from 'context/AppContext'
 import { useContext } from 'react'
 import { toast } from 'react-hot-toast'
+import confetti from 'canvas-confetti'
 import Product from 'utils/types/Product'
 
 const useCart = () => {
@@ -15,7 +16,16 @@ const useCart = () => {
 	const removeFromCart = (product: Product) =>
 		cartDispatch({ type: 'remove-from-cart', payload: product })
 
-	return { addToCart, removeFromCart, products, total }
+	const pay = () => {
+		cartDispatch({ type: 'reset' })
+		confetti({
+			particleCount: 100,
+			spread: 70,
+			origin: { y: 0.6 },
+		})
+	}
+
+	return { addToCart, removeFromCart, products, total, pay }
 }
 
 export default useCart

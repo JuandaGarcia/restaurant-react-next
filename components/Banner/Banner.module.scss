@@ -4,7 +4,6 @@
 	width: 100%;
 	padding: 1.5rem;
 	margin: var(--spacing) 0;
-	margin-top: 4rem;
 	padding-bottom: 0;
 	border-radius: 1.5rem;
 	background-color: #fef7ec;
@@ -14,9 +13,10 @@
 		'text'
 		'img';
 	@include media('tablet') {
-		height: 12.5rem;
-		position: relative;
 		display: flex;
+		height: 12.5rem;
+		margin-top: 4rem;
+		position: relative;
 	}
 	&__img {
 		width: 60%;
@@ -25,10 +25,18 @@
 		max-width: 200px;
 		user-select: none;
 		pointer-events: none;
-		@include media('tablet') {
+		@include media {
 			width: initial;
 			max-width: none;
 			height: 120%;
+			position: absolute;
+			bottom: 0;
+			left: 2.5rem;
+		}
+		@include media('tablet') {
+			width: initial;
+			max-width: none;
+			height: 100%;
 			position: absolute;
 			bottom: 0;
 			left: 2.5rem;
@@ -42,10 +50,15 @@
 		width: 100%;
 		text-align: center;
 		margin-bottom: var(--spacing);
-		@include media('tablet') {
+		@include media {
 			text-align: initial;
 			padding-right: 2.5rem;
 			padding-left: 20rem;
+		}
+		@include media('tablet') {
+			text-align: initial;
+			padding-right: 2.5rem;
+			padding-left: 15rem;
 		}
 		&__title {
 			color: var(--tertiary-color);
