@@ -3,9 +3,11 @@ import { useContext } from 'react'
 import { toast } from 'react-hot-toast'
 import confetti from 'canvas-confetti'
 import Product from 'utils/types/Product'
+import useRestaurant from './useRestaurant'
 
 const useCart = () => {
 	const { cartState, cartDispatch } = useContext(Context)
+	const { toggleMenu } = useRestaurant()
 	const { products, total } = cartState
 
 	const addToCart = (product: Product, notification: boolean = false) => {
@@ -18,6 +20,7 @@ const useCart = () => {
 
 	const pay = () => {
 		cartDispatch({ type: 'reset' })
+		toggleMenu()
 		confetti({
 			particleCount: 100,
 			spread: 70,
